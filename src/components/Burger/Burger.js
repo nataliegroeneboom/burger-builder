@@ -23,8 +23,7 @@ const burger = (props) => {
     }, []);
 
     /* The reduce function will reduce the arrays of arrays to an array of objects */
-    console.log(transformedIngredients);
-    console.log([...Array(3)]);
+
     if(transformedIngredients.length === 0){
         transformedIngredients = <p>Please start adding ingredients</p>
     }
