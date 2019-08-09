@@ -11,6 +11,24 @@ class Checkout extends Component {
             bacon: 1
         }
     }
+
+    componentDidMount(){
+        const params = new URLSearchParams(this.props.location.search);
+        const newIngredients = {};
+       for(let param of params.entries()){
+            newIngredients[param[0]] = +param[1]
+       }
+    //    newIngredients.meat = params.get('meat');
+    //    newIngredients.cheese = params.get('cheese');
+    //    newIngredients.salad = params.get('salad');
+    //    newIngredients.bacon = params.get('bacon');
+     
+       this.setState({
+        ingredients: newIngredients
+       });
+
+       console.log(this.state);
+    }
     checkoutCancelledHandler = () => {
         this.props.history.goBack();
     }
