@@ -14,8 +14,7 @@ class Checkout extends Component {
         const newIngredients = {};
         let price = 0;
        for(let param of params.entries()){
-
-            if(param[0] === 'price'){
+            if(param[0] === 'price'){      
                 price = +param[1];
             }else{
                 newIngredients[param[0]] = +param[1]
@@ -26,7 +25,11 @@ class Checkout extends Component {
         totalPrice: price
        });
 
-       console.log(this.state);
+      
+    }
+    
+    componentDidMount(){
+        console.log(this.state);
     }
     checkoutCancelledHandler = () => {
         this.props.history.goBack();
@@ -44,7 +47,7 @@ class Checkout extends Component {
                     />
                    <Route 
                             path={this.props.match.url+'/contact-data'} 
-                            render={(props)=> (<ContactData ingredients={this.state.ingredients} price={this.state.totlaPrice} {...this.props}/>)}  />
+                            render={(props)=> (<ContactData ingredients={this.state.ingredients} price={this.state.totalPrice} {...this.props}/>)}  />
             </div>
         )
     }
