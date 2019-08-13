@@ -9,7 +9,6 @@ const burger = (props) => {
     let transformedIngredients = Object.keys(props.ingredients)
     /** Mapping keys: cheese, bacon, salad, meat */
     .map(igKey => {
-        console.log(igKey);
     /** Array(3) will return an array with 3 empty spaces arrays
      * where you can map each space a such so if there are two cheeses
      * it will return two BurgerIngredient with type of 'cheese'  
