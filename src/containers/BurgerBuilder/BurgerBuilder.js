@@ -28,15 +28,16 @@ class BurgerBuilder extends Component {
     }
 
     componentDidMount(){
-        axios.get('https://react-my-burger-44ce7.firebaseio.com/ingredients.json')
-        .then(response => {
-            this.setState({ingredients: response.data})
-        }).catch(
-            error => {
-                this.setState({error: true})
-            }
-        );
+        // axios.get('https://react-my-burger-44ce7.firebaseio.com/ingredients.json')
+        // .then(response => {
+        //     this.setState({ingredients: response.data})
+        // }).catch(
+        //     error => {
+        //         this.setState({error: true})
+        //     }
+        // );
     }
+    
     updatePurchaseState(ingredients){
         /** Object.keys will take an object and convert it to an array of keys 
          * such that is will be ['salad', 'bacon', 'cheese', 'meat']
