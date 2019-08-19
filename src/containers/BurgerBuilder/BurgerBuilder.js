@@ -8,6 +8,7 @@ import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import axios from '../../axios-orders';
+
 import * as burgerBuilderActions from '../../store/actions/index';
 
 
@@ -17,19 +18,10 @@ class BurgerBuilder extends Component {
    
     state = {
         purchasing: false,
-        loading: false,
-        error: false
     }
 
     componentDidMount(){
-        axios.get('https://react-my-burger-44ce7.firebaseio.com/ingredients.json')
-        .then(response => {
-            this.setState({ingredients: response.data})
-        }).catch(
-            error => {
-                this.setState({error: true})
-            }
-        );
+        
     }
 
     updatePurchaseState(ingredients){
@@ -79,9 +71,7 @@ render(){
             disabledInfo[key] = disabledInfo[key] <= 0
         }
         let orderSummary =  null;
-        if(this.state.loading ){
-            orderSummary = <Spinner />
-        }
+      
         let burger = this.state.error?<div>Ingredients can't be loaded</div>:<Spinner />;
         if(this.props.ings){
             burger = (
